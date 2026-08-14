@@ -117,3 +117,14 @@ if(voucherForm && voucherConfirmMsg){
     voucherConfirmMsg.textContent = 'This is a design demo — voucher requests aren\u2019t sent yet. Once connected, you\u2019ll receive a confirmation here.';
   });
 }
+
+// ---------- Demo careers application form ----------
+const careersForm = document.getElementById('careersForm');
+const careersConfirmMsg = document.getElementById('careersConfirmMsg');
+if(careersForm && careersConfirmMsg){
+  careersForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    careersConfirmMsg.classList.add('show');
+    careersConfirmMsg.textContent = 'This is a design demo — applications aren\u2019t sent yet. Once connected, you\u2019ll receive a confirmation here.';
+  });
+}

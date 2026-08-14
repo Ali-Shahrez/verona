@@ -537,6 +537,66 @@ footer .fine{font-size:0.76rem; margin-top:18px; color:#75705f;}
   width:28px;
 }
 
+/* ---------- CAREERS PAGE ---------- */
+.jobs-wrap{max-width:900px; margin:0 auto;}
+.job-card{
+  background:var(--noir-2); border:1px solid var(--line); border-radius:4px;
+  padding:40px 40px 42px;
+  margin-bottom:32px;
+}
+.job-head{
+  display:flex; align-items:flex-start; justify-content:space-between; gap:20px;
+  flex-wrap:wrap;
+  border-bottom:1px solid var(--line);
+  padding-bottom:22px; margin-bottom:24px;
+}
+.job-head-text .job-num{
+  display:block; font-family:'Italiana', serif; font-size:0.95rem;
+  color:var(--gold-deep); letter-spacing:0.1em; margin-bottom:10px;
+}
+.job-head-text h3{font-size:clamp(1.4rem,2.6vw,1.9rem); color:var(--cream); margin:0;}
+.job-tags{display:flex; flex-wrap:wrap; gap:8px;}
+.job-tags span{
+  font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--gold-soft); border:1px solid var(--line);
+  padding:6px 14px; border-radius:20px; white-space:nowrap;
+}
+.job-card h4{
+  font-size:0.76rem; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--gold); margin:0 0 14px;
+}
+.job-card ul{
+  list-style:none; margin:0 0 26px; padding:0;
+  display:flex; flex-direction:column; gap:11px;
+}
+.job-card ul:last-of-type{margin-bottom:30px;}
+.job-card li{
+  position:relative; padding-left:22px;
+  color:var(--muted); font-size:0.94rem;
+}
+.job-card li::before{
+  content:''; position:absolute; left:0; top:10px;
+  width:6px; height:6px; border-radius:50%; background:var(--gold-deep);
+}
+.job-card .btn{align-self:flex-start;}
+
+.why-work{max-width:760px; margin:0 auto 66px;}
+.why-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:center;
+}
+.why-grid div{
+  border:1px solid var(--line); border-radius:4px; padding:26px 18px;
+}
+.why-grid .why-num{
+  display:block; font-family:'Italiana', serif; color:var(--gold); font-size:1.3rem; margin-bottom:10px;
+}
+.why-grid p{margin:0; color:var(--muted); font-size:0.88rem;}
+
+@media(max-width:720px){
+  .job-card{padding:30px 24px 32px;}
+  .why-grid{grid-template-columns:1fr;}
+}
+
 @media(max-width:900px){
   .purchase-grid{grid-template-columns:1fr;}
   .showcase-grid{grid-template-columns:1fr; gap:32px;}
