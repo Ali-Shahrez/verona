@@ -6,41 +6,29 @@
 <title>Verona | Italian Restaurant, Cleckheaton</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- minimal bar shown over the hero -->
 <div class="top-strip" id="topStrip">
-  <div class="brand">VERONA <span>Cleckheaton</span></div>
-  <a class="tel" href="tel:01274043495">Call 01274 043495</a>
+  <div class="brand"><img src="images/logo.jpg" alt="Verona logo"> VERONA</div>
+  <a class="tel" href="tel:01274043495">01274 043495</a>
 </div>
 
 <!-- full nav that pops in once you scroll past the hero -->
 <nav class="site-nav" id="siteNav">
   <div class="wrap bar">
-    <div class="logo">VERONA <span>Cleckheaton</span></div>
+    <div class="logo"><img src="images/logo.jpg" alt="Verona logo"> VERONA</div>
     <button class="burger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">Home</a></li>
-      <li class="has-sub" id="menuHasSub">
-        <a href="#menus">Menus</a>
-        <ul class="sub">
-          <li><a href="#menus">Specials</a></li>
-          <li><a href="#menus">Main Menu</a></li>
-          <li><a href="#menus">Early Bird</a></li>
-          <li><a href="#menus">Summer Menu</a></li>
-          <li><a href="#menus">Children's Menu</a></li>
-          <li><a href="#menus">Dessert Menu</a></li>
-          <li><a href="#menus">Drink Menu</a></li>
-          <li><a href="#buffet">Buffet Menu</a></li>
-        </ul>
-      </li>
-      <li><a href="#hours">Contact us</a></li>
+      <li><a href="#menus">Menus</a></li>
+      <li><a href="#visit">Visit Us</a></li>
       <li><a href="#">Gift Vouchers</a></li>
       <li><a href="#">Careers</a></li>
-      <li><a class="nav-cta" href="#">Book a Table</a></li>
+      <li><a class="nav-cta" href="#visit">Book a Table</a></li>
     </ul>
   </div>
 </nav>
@@ -48,139 +36,168 @@
 <!-- HERO -->
 <header class="hero" id="home">
   <div class="wrap hero-inner">
-    <div class="hero-grid">
-      <div>
-        <div class="eyebrow hero-eyebrow">New · Seasonal · Irresistible</div>
-        <h1>All new menus <em>await you</em>.</h1>
-        <p class="lede">Ready for a fresh culinary experience? We're thrilled to unveil our all new menus, crafted with the finest seasonal ingredients — each dish designed to celebrate every moment at the table.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#">Book a Table</a>
-          <a class="btn btn-ghost" href="#menus">View New Menus</a>
-        </div>
-      </div>
-      <div class="arch-frame hero-frame">
-        <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQXgs9REgAPzfVNOHy1FglE_QKoLwOJiThExuVfw8TK0ivW_Mt9SvWV7eSFx03MOqiNBlcHuxdBLt5yFxcAWWWMo1AYrIswbPQRc5IYcqr7CZ5h1e1EH8uw48ZIjncSAORyHBYMfC1m0RlsLi5q1mUXUYVu2dAkdM1WwVAj7M0a9bOEVg67UvMIadq27TZr_TCQiERQvBbH374uvdNMOGTUXHNdPYuzbNjfnG4E3=w900" alt="Verona restaurant, Cleckheaton">
-      </div>
+    <span class="eyebrow">Cleckheaton's Italian Table</span>
+    <h1>All new menus <span>await you</span></h1>
+    <p class="lede">Handmade pizza, comforting pasta and the best cut of steak — crafted with the finest seasonal ingredients, plated to celebrate every moment at the table.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#visit">Book a Table</a>
+      <a class="btn btn-ghost" href="#menus">View New Menus</a>
     </div>
   </div>
 </header>
 
 <!-- INTRO -->
 <section class="intro wrap">
-  <div class="eyebrow">Welcome to Verona</div>
-  <h2>More new menus for you to enjoy.</h2>
-  <p>From elevated everyday favourites to bright summer dishes and chef-curated specials, there is something new for every occasion.</p>
-  <div class="intro-rule"></div>
+  <div class="divider"><span class="line"></span><span class="mark"><img src="images/logo.jpg" alt=""></span><span class="line right"></span></div>
+  <h2>Fresh flavours, generous tables, and a warm Cleckheaton welcome.</h2>
+  <p>From elevated everyday favourites to bright summer plates and chef-curated specials, there's something new to discover at Verona.</p>
 </section>
 
-<!-- MENUS -->
-<section class="menus wrap" id="menus">
-  <div class="menus-head">
-    <div>
-      <div class="eyebrow">On the table</div>
-      <h2>Explore our menus</h2>
+<!-- MENU CAROUSEL -->
+<section class="carousel-section wrap" id="menus">
+  <div class="carousel-head">
+    <span class="eyebrow">On the Table</span>
+    <h2>Explore Our Menus</h2>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button class="active">Main</button>
+    <button>Summer</button>
+    <button>Specials</button>
+    <button>Early Bird</button>
+    <button>Kids</button>
+    <button>Buffet</button>
+  </div>
+
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="carouselTrack">
+
+      <article class="slide">
+        <div class="slide-img"><img src="images/steak.jpg" alt="New Main Menu at Verona"></div>
+        <div class="slide-body">
+          <span class="eyebrow">New Main Menu</span>
+          <h3>Timeless &amp; New</h3>
+          <p>A refreshed collection of timeless dishes and new creations — the best cut of steak, freshest seafood, fresh handmade pizzas, comforting pasta and delicious desserts.</p>
+          <ul class="slide-facts">
+            <li>Bruschetta al Pomodoro <span class="price">£8.50</span></li>
+            <li>Polpette della Nonna <span class="price">£11.95</span></li>
+            <li>Salmone Montecarlo <span class="price">£14.50</span></li>
+          </ul>
+          <a class="btn btn-ghost" href="https://www.veronacleckheaton.com/menus/main-menu">View New Main Menu</a>
+        </div>
+      </article>
+
+      <article class="slide">
+        <div class="slide-img"><img src="images/saturday-summer-lunch.jpg" alt="Taste of Summer — Saturday Lunch Set Menu"></div>
+        <div class="slide-body">
+          <span class="eyebrow">Taste of Summer</span>
+          <h3>Saturday Lunch, Set Menu</h3>
+          <p>Our beautifully light and deliciously indulgent Saturday summer lunch menu — one course served with a medium glass of house wine, bottled beer, soft drink or spritzer.</p>
+          <ul class="slide-facts">
+            <li>Verona Summer Toastie · Dressed Asparagus · Salade Niçoise</li>
+            <li>Scottish Mussels · Paillard of Chicken — all with a side of fries</li>
+            <li>Saturdays, 12pm – 3:30pm <span class="price">£15.95</span></li>
+          </ul>
+          <a class="btn btn-ghost" href="https://www.veronacleckheaton.com/menus/summer-menu">View New Summer Menu</a>
+        </div>
+      </article>
+
+      <article class="slide">
+        <div class="slide-img"><img src="images/706064922_17867067228624778_53595384746829227_n.jpg" alt="Chef's Specials at Verona"></div>
+        <div class="slide-body">
+          <span class="eyebrow">New Special Menu</span>
+          <h3>Chef Inspired</h3>
+          <p>Dishes that change often and showcase the best ingredients at their peak — unique creations by our culinary team, available for a limited time only.</p>
+          <ul class="slide-facts">
+            <li>Changes regularly with the season</li>
+            <li>Unique creations from our culinary team</li>
+            <li>Limited availability — don't miss out</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://www.veronacleckheaton.com/menus/specials">View New Specials Menu</a>
+        </div>
+      </article>
+
+      <article class="slide">
+        <div class="slide-img"><img src="images/718315775_17868722325624778_5782519460295851310_n.jpg" alt="Early Bird Menu at Verona"></div>
+        <div class="slide-body">
+          <span class="eyebrow">New Early Bird Menu</span>
+          <h3>Dine &amp; Save</h3>
+          <p>Enjoy a delightful dining experience before the usual dinner crowd, while saving a few pounds — a tasty opportunity not to be missed.</p>
+          <ul class="slide-facts">
+            <li>Two courses <span class="price">£19.95</span></li>
+            <li>Includes many classic dishes from the main menu</li>
+            <li>Dine early and save</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://www.veronacleckheaton.com/menus/early-bird">View New Early Bird Menu</a>
+        </div>
+      </article>
+
+      <article class="slide">
+        <div class="slide-img"><img src="images/pasta.jpg" alt="Kids Menu at Verona"></div>
+        <div class="slide-body">
+          <span class="eyebrow">New Kids Menu</span>
+          <h3>Little Appetites, Big Smiles</h3>
+          <p>Full of tasty, child-friendly favourites — every meal perfectly sized for little appetites, with creamy pasta and fresh handmade chicken goujons.</p>
+          <ul class="slide-facts">
+            <li>Main &amp; ice cream <span class="price">£9.95</span></li>
+            <li>Creamy pasta</li>
+            <li>Fresh handmade chicken goujons</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://www.veronacleckheaton.com/menus/childrens-menu">View New Kids Menu</a>
+        </div>
+      </article>
+
+      <article class="slide">
+        <div class="slide-img"><img src="images/704072646_17866510659624778_6656631121721273205_n.jpg" alt="Celebration Buffet at Verona"></div>
+        <div class="slide-body">
+          <span class="eyebrow">New Celebration Buffet</span>
+          <h3>Gather &amp; Celebrate</h3>
+          <p>From birthdays to baby showers, our Saturday afternoon buffet is the ideal way to celebrate — choose the cosy Green Room or our main dining area, and let us take care of the food.</p>
+          <ul class="slide-facts">
+            <li>Per person <span class="price">£15</span></li>
+            <li>Green Room seats up to 25 guests</li>
+            <li>Saturdays, 12pm – 3pm</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://www.veronacleckheaton.com/menus/buffet-menu">View Celebration Buffet Menu</a>
+        </div>
+      </article>
+
     </div>
-    <p>New menus, each built around the season — from timeless classics to lighter summer plates and dishes made just for our smaller guests.</p>
   </div>
 
-  <div class="menu-grid">
-
-    <article class="menu-card">
-      <div class="arch-frame"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQVSQprmutOdHiSRDJ-RBX9kWiWHVt-ygIBzX668f70KdsS05oXEYKE_FxULI13s66P6v7zAbHlQRatOjOiHxw6gfoDuyP2tRLae47fw-YCOi_1p1kHmBh-OiimjkfLODYtQXzhUWXZSU1W0RxLd1lsvn91j5rkL7ka9nbGxsB7Ih3dLGH-Fb2B4nmqP6VfzhWNGKnZPvCu348WpcnwHzltK0NtoDuJVCR03mR4=w700" alt="New main menu dish"></div>
-      <div class="menu-card-body">
-        <span class="eyebrow tag">New Main Menu</span>
-        <h3>Timeless &amp; New</h3>
-        <p>A refreshed collection of timeless dishes and new creations. Comforting, elevated, and crafted with premium ingredients — best cut of steak, freshest seafood, fresh handmade pizzas, comforting pasta and delicious desserts.</p>
-        <a class="link" href="https://www.veronacleckheaton.com/menus/main-menu">View New Main Menu</a>
-      </div>
-    </article>
-
-    <article class="menu-card">
-      <div class="arch-frame"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQWPIBgzauYl-CgnTl3xejaIol4y-8t95552YqoXyMi1Dm0NukqNkyL_qNuyQ4i2AmABQ56IHNN5MhgBnJ1KtrexCkMZQGMnaHCUBrV3xy2K7PGvjqG4wfK1QunwkUfMzHByumYSQmyqqjC-Zv-LsWwWDZJgbhoaYBTfnra0K25RldMVVurRAYE_y6a6uhq0SQL_HVc_f1S-WpD_AFC6lky73Bz9u85ciM9MmLqfOgA=w700" alt="New summer menu dish"></div>
-      <div class="menu-card-body">
-        <span class="eyebrow tag">New Summer Menu</span>
-        <h3>Light &amp; Vibrant</h3>
-        <p>Light, vibrant and full of sunshine, inspired by the best of the season with fresh produce and bright flavours. £15.95 — includes a side of fries and a drink.</p>
-        <a class="link" href="https://www.veronacleckheaton.com/menus/summer-menu">View New Summer Menu</a>
-      </div>
-    </article>
-
-    <article class="menu-card">
-      <div class="arch-frame"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQWJ9d-TcDJW_aPAXwXTXEAX9_3f6Ap8cw3rqNe3d-9gV0s4eHKH1DkKjgaKRe7SLY5wpgsJu7xULVplR7qbSAG870Sr6BLPiZXUmuYyNqsTBxoyAF3Jwc-zboC81-Bnbqql_aKTOXqK5XsC5tpUC46kbg_C0eFn7-qrnDfnI3PacOXKdPn69me9ECX6g9Vc7UBHMotlK0vQ8y18Ww7OlLa6F6_dv-I8B_RkYR01=w700" alt="New special menu dish"></div>
-      <div class="menu-card-body">
-        <span class="eyebrow tag">New Special Menu</span>
-        <h3>Chef Inspired</h3>
-        <p>Chef inspired dishes that change often and showcase the best ingredients at their peak — unique creations by our culinary team, available for a limited time.</p>
-        <a class="link" href="https://www.veronacleckheaton.com/menus/specials">View New Specials Menu</a>
-      </div>
-    </article>
-
-    <article class="menu-card">
-      <div class="arch-frame"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQWZdIQX1xK3RD42-QDr6fsJAncJencgEb0iTdNQW5dKrBeascC2U5I7k5XCtRrj3FeVvrLir5ncyKFZ8ABDKEzpAjRpqgQKXYGwYvok4VCXJe1JfzP5-hRWcIwoynrveU5MqUlFHLssnRPc67TF2LC_aArLEYYSKct4lytOHziLbD5_VOZPZOIbY55Mvbi7d4mTkV5KE-6SOim761YgJNckj_wxevuuHZ3dPEmQmnQ=w700" alt="New early bird menu dish"></div>
-      <div class="menu-card-body">
-        <span class="eyebrow tag">New Early Bird Menu</span>
-        <h3>Dine &amp; Save</h3>
-        <p>Enjoy a delightful dining experience before the usual dinner crowd while saving a few pounds. £19.95 for 2 courses, including many classic dishes from the main menu.</p>
-        <a class="link" href="https://www.veronacleckheaton.com/menus/early-bird">View New Early Bird Menu</a>
-      </div>
-    </article>
-
-    <article class="menu-card">
-      <div class="arch-frame"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQVKX4gNmzCZFkSdfDdAD3VcY37gYbP0bQempKsyFoZ-k7YLVa-4-eEHshF6GPRe0eb7_bBIsxqcwGbB6suJLIZppxdRxdzIshGMGnhP5zfK9PZg2K4xgSvnpDAYYbBPwfoMPjxRToLI19PSB8sqx6bgWYJr-DN8PMn3mVOQJLtt-2uLcJ4pBRzGinPsQZCK2V7-aaHJ3joj2wz1m7HbQbNk70mkQBh-hKMouENIF0k=w700" alt="New kids menu dish"></div>
-      <div class="menu-card-body">
-        <span class="eyebrow tag">New Kids Menu</span>
-        <h3>Little Appetites, Big Smiles</h3>
-        <p>Full of tasty, child friendly favourites, every meal perfectly sized for little appetites. £9.95 for a main and ice cream — creamy pasta and fresh handmade chicken goujons.</p>
-        <a class="link" href="https://www.veronacleckheaton.com/menus/childrens-menu">View New Kids Menu</a>
-      </div>
-    </article>
-
-  </div>
-
-  <div class="more-menus">
-    <span class="eyebrow">Also available</span>
-    <a href="https://www.veronacleckheaton.com/menus/dessert-menu">Dessert Menu</a>
-    <a href="https://www.veronacleckheaton.com/menus/drink-menu">Drink Menu</a>
+  <div class="carousel-nav">
+    <button id="prevSlide" aria-label="Previous menu">&#8592;</button>
+    <div class="carousel-dots">
+      <span class="active"></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <button id="nextSlide" aria-label="Next menu">&#8594;</button>
   </div>
 </section>
 
-<!-- FEATURE / CELEBRATION BUFFET -->
-<section class="feature" id="buffet">
-  <div class="feature-grid">
-    <div class="feature-copy">
-      <div class="eyebrow">Saturdays, 12pm – 3pm</div>
-      <h2>New Celebration Buffet Menu</h2>
-      <p>Looking for the perfect spot to celebrate? Join us at Verona Cleckheaton for our Saturday Afternoon Party Buffet. From birthdays to baby showers, we have the ideal space for you and your loved ones.</p>
-      <p>Whether you choose the cosy green room for up to 25 guests or our spacious main dining area for larger gatherings, let us take care of the food while you enjoy the celebration. Contact a member of our team to start planning your special event today.</p>
-      <a class="btn btn-ghost" href="https://www.veronacleckheaton.com/menus/buffet-menu" style="margin-top:10px;">View Celebration Buffet Menu</a>
-      <div class="feature-facts">
-        <div><div class="num">£15</div><div class="lab">Per Person</div></div>
-        <div><div class="num">25</div><div class="lab">Green Room Guests</div></div>
-        <div><div class="num">Sat</div><div class="lab">12pm – 3pm</div></div>
-      </div>
-    </div>
-    <div class="feature-img"></div>
-  </div>
-</section>
+<!-- VISIT + BOOKING -->
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div class="visit-info">
+      <span class="eyebrow">Visit Verona</span>
+      <h2>Come see us in Cleckheaton</h2>
+      <p>Whether it's a quiet weeknight dinner or a Saturday celebration, we'd love to have you at our table. Reach out below or give us a call to check availability.</p>
 
-<!-- HOURS + FIND US -->
-<section class="hours" id="hours">
-  <div class="wrap hours-grid">
-    <div>
-      <div class="eyebrow">Opening Hours</div>
-      <h2>When to find us</h2>
-      <table class="hours-table">
-        <tr><td>Tuesday – Thursday</td><td>5pm – 9:30pm</td></tr>
-        <tr><td>Friday</td><td>5pm – 10pm</td></tr>
-        <tr><td>Saturday</td><td>12pm – 10pm</td></tr>
-        <tr><td>Sunday</td><td>12noon – 8:30pm</td></tr>
-      </table>
-    </div>
-    <div class="find-us">
-      <div class="eyebrow">Find Us</div>
-      <h2>Visit Verona</h2>
-      <p class="addr">6–14 Central Parade, Cleckheaton, BD19 3RU</p>
-      <a class="phone" href="tel:01274043495">01274 043495</a>
+      <div class="info-block">
+        <span class="label">Opening Hours</span>
+        <table class="hours-table">
+          <tr><td>Tuesday – Thursday</td><td>5pm – 9:30pm</td></tr>
+          <tr><td>Friday</td><td>5pm – 10pm</td></tr>
+          <tr><td>Saturday</td><td>12pm – 10pm</td></tr>
+          <tr><td>Sunday</td><td>12noon – 8:30pm</td></tr>
+        </table>
+      </div>
+
+      <div class="info-block">
+        <span class="label">Find Us</span>
+        <p class="addr">6–14 Central Parade, Cleckheaton, BD19 3RU</p>
+        <a class="phone-link" href="tel:01274043495">01274 043495</a>
+      </div>
+
       <div class="social-row">
         <a href="https://www.instagram.com/veronaitalian/" aria-label="Instagram" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 .01 4.12.06 1.13.05 1.9.24 2.58.5.7.27 1.29.63 1.88 1.22.59.59.95 1.18 1.22 1.88.26.68.45 1.45.5 2.58.05 1.12.06 1.42.06 4.12s-.01 3-.06 4.12c-.05 1.13-.24 1.9-.5 2.58-.27.7-.63 1.29-1.22 1.88-.59.59-1.18.95-1.88 1.22-.68.26-1.45.45-2.58.5-1.12.05-1.42.06-4.12.06s-3-.01-4.12-.06c-1.13-.05-1.9-.24-2.58-.5-.7-.27-1.29-.63-1.88-1.22-.59-.59-.95-1.18-1.22-1.88-.26-.68-.45-1.45-.5-2.58C2.01 15 2 14.7 2 12s.01-3 .06-4.12c.05-1.13.24-1.9.5-2.58.27-.7.63-1.29 1.22-1.88.59-.59 1.18-.95 1.88-1.22.68-.26 1.45-.45 2.58-.5C9 2.01 9.3 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
@@ -190,20 +207,67 @@
         </a>
       </div>
     </div>
+
+    <div class="booking-card">
+      <h3>Request a Table</h3>
+      <p class="demo-note">This is a design demo — the form below is not yet connected to a live booking system.</p>
+      <form id="bookingForm">
+        <div class="field-row">
+          <div class="field">
+            <label for="bname">Name</label>
+            <input id="bname" type="text" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="bphone">Phone</label>
+            <input id="bphone" type="tel" placeholder="Phone number" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="bemail">Email</label>
+          <input id="bemail" type="email" placeholder="you@email.com" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="bdate">Date</label>
+            <input id="bdate" type="date">
+          </div>
+          <div class="field">
+            <label for="btime">Time</label>
+            <input id="btime" type="time">
+          </div>
+        </div>
+        <div class="field">
+          <label for="bguests">Party Size</label>
+          <select id="bguests">
+            <option>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4 Guests</option>
+            <option>5–8 Guests</option>
+            <option>9+ Guests</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="bnote">Special Requests</label>
+          <textarea id="bnote" placeholder="Allergies, celebrations, seating preferences..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Request Booking</button>
+        <div class="confirm-msg" id="confirmMsg"></div>
+      </form>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <div class="brand">VERONA <span>Cleckheaton</span></div>
+    <div class="divider"><span class="line"></span><span class="mark"><img src="images/logo.jpg" alt=""></span><span class="line right"></span></div>
+    <div class="brand">VERONA</div>
     <div class="links">
       <a href="#home">Home</a>
       <a href="#menus">Menus</a>
-      <a href="https://www.veronacleckheaton.com/booking">Booking</a>
-      <a href="https://www.veronacleckheaton.com/gift-vouchers">Gift Vouchers</a>
-      <a href="https://www.veronacleckheaton.com/contact-us">Contact Us</a>
-      <a href="https://www.veronacleckheaton.com/careers">Careers</a>
+      <a href="#visit">Visit Us</a>
+      <a href="#">Gift Vouchers</a>
+      <a href="#">Careers</a>
     </div>
     <div class="fine">Verona · 6–14 Central Parade, Cleckheaton, BD19 3RU · 01274 043495</div>
   </div>

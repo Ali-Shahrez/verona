@@ -20,33 +20,54 @@ onScroll();
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
 burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-
-const menuHasSub = document.getElementById('menuHasSub');
-menuHasSub.querySelector('a').addEventListener('click', (e) => {
-  if(window.innerWidth <= 900){
-    e.preventDefault();
-    menuHasSub.classList.toggle('open');
-  }
-});
-
-// close mobile nav after tapping a real link
-navLinks.querySelectorAll('a:not([href="#menus"])').forEach(a => {
+navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     if(window.innerWidth <= 900) navLinks.classList.remove('open');
   });
 });
 
-// ---------- Reveal menu cards on scroll ----------
-const cards = document.querySelectorAll('.menu-card');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('in');
-      io.unobserve(entry.target);
-    }
+// ---------- Menu carousel ----------
+const track = document.getElementById('carouselTrack');
+const slides = Array.from(track.children);
+const tabs = Array.from(document.querySelectorAll('.tabs button'));
+const dots = Array.from(document.querySelectorAll('.carousel-dots span'));
+const prevBtn = document.getElementById('prevSlide');
+const nextBtn = document.getElementById('nextSlide');
+let index = 0;
+let autoplayTimer;
+
+function goTo(i){
+  index = (i + slides.length) % slides.length;
+  track.style.transform = `translateX(-${index * 100}%)`;
+  tabs.forEach((t, ti) => t.classList.toggle('active', ti === index));
+  dots.forEach((d, di) => d.classList.toggle('active', di === index));
+}
+function next(){ goTo(index + 1); }
+function prev(){ goTo(index - 1); }
+
+tabs.forEach((t, i) => t.addEventListener('click', () => { goTo(i); restartAutoplay(); }));
+nextBtn.addEventListener('click', () => { next(); restartAutoplay(); });
+prevBtn.addEventListener('click', () => { prev(); restartAutoplay(); });
+
+function restartAutoplay(){
+  clearInterval(autoplayTimer);
+  autoplayTimer = setInterval(next, 7000);
+}
+restartAutoplay();
+
+const viewport = document.querySelector('.carousel-viewport');
+viewport.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+viewport.addEventListener('mouseleave', restartAutoplay);
+
+goTo(0);
+
+// ---------- Demo booking form ----------
+const bookingForm = document.getElementById('bookingForm');
+const confirmMsg = document.getElementById('confirmMsg');
+if(bookingForm){
+  bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    confirmMsg.classList.add('show');
+    confirmMsg.textContent = 'This is a design demo — booking requests aren\u2019t sent yet. Once connected, you\u2019ll receive a confirmation here.';
   });
-}, {threshold:0.15});
-cards.forEach((c, i) => {
-  c.style.transitionDelay = (i % 3) * 0.08 + 's';
-  io.observe(c);
-});
+}
