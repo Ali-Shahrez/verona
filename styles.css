@@ -543,6 +543,12 @@ footer .fine{font-size:0.76rem; margin-top:18px; color:#75705f;}
   background:var(--noir-2); border:1px solid var(--line); border-radius:4px;
   padding:40px 40px 42px;
   margin-bottom:32px;
+  transition:border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.job-card:hover{
+  border-color:var(--gold-deep);
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
 }
 .job-head{
   display:flex; align-items:flex-start; justify-content:space-between; gap:20px;
@@ -554,16 +560,19 @@ footer .fine{font-size:0.76rem; margin-top:18px; color:#75705f;}
   display:block; font-family:'Italiana', serif; font-size:0.95rem;
   color:var(--gold-deep); letter-spacing:0.1em; margin-bottom:10px;
 }
-.job-head-text h3{font-size:clamp(1.4rem,2.6vw,1.9rem); color:var(--cream); margin:0;}
+.job-head-text .job-title{font-size:clamp(1.4rem,2.6vw,1.9rem); color:var(--cream); margin:0; font-weight:400;}
 .job-tags{display:flex; flex-wrap:wrap; gap:8px;}
 .job-tags span{
   font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;
   color:var(--gold-soft); border:1px solid var(--line);
   padding:6px 14px; border-radius:20px; white-space:nowrap;
+  transition:border-color 0.2s ease, color 0.2s ease;
 }
-.job-card h4{
+.job-card:hover .job-tags span{border-color:var(--gold-deep); color:var(--gold);}
+.job-card .job-subhead{
+  font-family:'Jost', sans-serif;
   font-size:0.76rem; letter-spacing:0.16em; text-transform:uppercase;
-  color:var(--gold); margin:0 0 14px;
+  color:var(--gold); margin:0 0 14px; font-weight:600;
 }
 .job-card ul{
   list-style:none; margin:0 0 26px; padding:0;
@@ -586,7 +595,9 @@ footer .fine{font-size:0.76rem; margin-top:18px; color:#75705f;}
 }
 .why-grid div{
   border:1px solid var(--line); border-radius:4px; padding:26px 18px;
+  transition:border-color 0.25s ease, transform 0.25s ease;
 }
+.why-grid div:hover{border-color:var(--gold-deep); transform:translateY(-3px);}
 .why-grid .why-num{
   display:block; font-family:'Italiana', serif; color:var(--gold); font-size:1.3rem; margin-bottom:10px;
 }

@@ -118,6 +118,25 @@ if(voucherForm && voucherConfirmMsg){
   });
 }
 
+// ---------- Job card "Apply for This Role" pre-selects role in form ----------
+const jobApplyBtns = document.querySelectorAll('.job-apply-btn');
+const roleSelect = document.getElementById('crole');
+if(jobApplyBtns.length && roleSelect){
+  jobApplyBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const role = btn.getAttribute('data-role');
+      const options = Array.from(roleSelect.options).map(o => o.value || o.textContent);
+      if(role && options.includes(role)){
+        roleSelect.value = role;
+      }
+      const nameField = document.getElementById('cname');
+      if(nameField){
+        setTimeout(() => nameField.focus(), 550);
+      }
+    });
+  });
+}
+
 // ---------- Demo careers application form ----------
 const careersForm = document.getElementById('careersForm');
 const careersConfirmMsg = document.getElementById('careersConfirmMsg');
