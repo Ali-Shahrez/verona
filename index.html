@@ -221,35 +221,39 @@
 
     <div class="booking-card">
       <h3>Request a Table</h3>
-      <p class="demo-note">This is a design demo — the form below is not yet connected to a live booking system.</p>
+      <p class="demo-note">Fill in your details and we'll be in touch to confirm your table. For same-day requests, please call us directly.</p>
       <form id="bookingForm">
+        <input type="hidden" name="access_key" value="6bbcd285-b3f5-4c4e-b8cf-b02cddfe5884">
+        <input type="hidden" name="subject" value="New Table Booking Request — Verona">
+        <input type="hidden" name="from_name" value="Verona Website">
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
         <div class="field-row">
           <div class="field">
             <label for="bname">Name</label>
-            <input id="bname" type="text" placeholder="Your name" required>
+            <input id="bname" name="name" type="text" placeholder="Your name" required>
           </div>
           <div class="field">
             <label for="bphone">Phone</label>
-            <input id="bphone" type="tel" placeholder="Phone number" required>
+            <input id="bphone" name="phone" type="tel" placeholder="Phone number" required>
           </div>
         </div>
         <div class="field">
           <label for="bemail">Email</label>
-          <input id="bemail" type="email" placeholder="you@email.com" required>
+          <input id="bemail" name="email" type="email" placeholder="you@email.com" required>
         </div>
         <div class="field-row">
           <div class="field">
             <label for="bdate">Date</label>
-            <input id="bdate" type="date">
+            <input id="bdate" name="date" type="date">
           </div>
           <div class="field">
             <label for="btime">Time</label>
-            <input id="btime" type="time">
+            <input id="btime" name="time" type="time">
           </div>
         </div>
         <div class="field">
           <label for="bguests">Party Size</label>
-          <select id="bguests">
+          <select id="bguests" name="party_size">
             <option>2 Guests</option>
             <option>3 Guests</option>
             <option>4 Guests</option>
@@ -259,7 +263,7 @@
         </div>
         <div class="field">
           <label for="bnote">Special Requests</label>
-          <textarea id="bnote" placeholder="Allergies, celebrations, seating preferences..."></textarea>
+          <textarea id="bnote" name="message" placeholder="Allergies, celebrations, seating preferences..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Request Booking</button>
         <div class="confirm-msg" id="confirmMsg"></div>

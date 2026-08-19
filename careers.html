@@ -167,25 +167,29 @@
 
     <div class="booking-card">
       <h3>Job Application</h3>
-      <p class="demo-note">This is a design demo — the form below is not yet connected to a live application system.</p>
+      <p class="demo-note">We review every application personally and will be in touch if there's a good fit.</p>
       <form id="careersForm">
+        <input type="hidden" name="access_key" value="6bbcd285-b3f5-4c4e-b8cf-b02cddfe5884">
+        <input type="hidden" name="subject" value="New Job Application — Verona">
+        <input type="hidden" name="from_name" value="Verona Website">
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
         <div class="field-row">
           <div class="field">
             <label for="cname">Name</label>
-            <input id="cname" type="text" placeholder="Your name" required>
+            <input id="cname" name="name" type="text" placeholder="Your name" required>
           </div>
           <div class="field">
             <label for="cphone">Phone</label>
-            <input id="cphone" type="tel" placeholder="Phone number" required>
+            <input id="cphone" name="phone" type="tel" placeholder="Phone number" required>
           </div>
         </div>
         <div class="field">
           <label for="cemail">Email</label>
-          <input id="cemail" type="email" placeholder="you@email.com" required>
+          <input id="cemail" name="email" type="email" placeholder="you@email.com" required>
         </div>
         <div class="field">
           <label for="crole">Role You're Applying For</label>
-          <select id="crole">
+          <select id="crole" name="role">
             <option>Chef de Partie</option>
             <option>Pot Washer</option>
             <option>Other / Speculative</option>
@@ -193,7 +197,7 @@
         </div>
         <div class="field">
           <label for="cexperience">Relevant Experience</label>
-          <textarea id="cexperience" placeholder="Tell us a bit about your experience..."></textarea>
+          <textarea id="cexperience" name="message" placeholder="Tell us a bit about your experience..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit Application</button>
         <div class="confirm-msg" id="careersConfirmMsg"></div>

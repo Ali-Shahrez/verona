@@ -96,27 +96,64 @@ if(track){
   goTo(0);
 }
 
-// ---------- Demo booking form ----------
-const bookingForm = document.getElementById('bookingForm');
-const confirmMsg = document.getElementById('confirmMsg');
-if(bookingForm && confirmMsg){
-  bookingForm.addEventListener('submit', (e) => {
+// ---------- Web3Forms submission handler (shared by all site forms) ----------
+function setupWeb3Form(formId, confirmId, messages){
+  const form = document.getElementById(formId);
+  const confirm = document.getElementById(confirmId);
+  if(!form || !confirm) return;
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn ? submitBtn.textContent : '';
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    confirmMsg.classList.add('show');
-    confirmMsg.textContent = 'This is a design demo — booking requests aren\u2019t sent yet. Once connected, you\u2019ll receive a confirmation here.';
+
+    if(submitBtn){
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending\u2026';
+    }
+    confirm.classList.remove('show', 'error');
+
+    try{
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+
+      if(result.success){
+        confirm.textContent = messages.success;
+        confirm.classList.add('show');
+        form.reset();
+      } else {
+        confirm.textContent = messages.error;
+        confirm.classList.add('show', 'error');
+      }
+    } catch(err){
+      confirm.textContent = messages.error;
+      confirm.classList.add('show', 'error');
+    } finally {
+      if(submitBtn){
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    }
   });
 }
 
-// ---------- Demo gift voucher request form ----------
-const voucherForm = document.getElementById('voucherForm');
-const voucherConfirmMsg = document.getElementById('voucherConfirmMsg');
-if(voucherForm && voucherConfirmMsg){
-  voucherForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    voucherConfirmMsg.classList.add('show');
-    voucherConfirmMsg.textContent = 'This is a design demo — voucher requests aren\u2019t sent yet. Once connected, you\u2019ll receive a confirmation here.';
-  });
-}
+setupWeb3Form('bookingForm', 'confirmMsg', {
+  success: 'Thank you \u2014 your booking request has been sent. We\u2019ll be in touch shortly to confirm.',
+  error: 'Something went wrong sending your request. Please call us on 01274 043495.'
+});
+
+setupWeb3Form('voucherForm', 'voucherConfirmMsg', {
+  success: 'Thank you \u2014 your voucher request has been sent. We\u2019ll be in touch shortly.',
+  error: 'Something went wrong sending your request. Please call us on 01274 043495.'
+});
 
 // ---------- Job card "Apply for This Role" pre-selects role in form ----------
 const jobApplyBtns = document.querySelectorAll('.job-apply-btn');
@@ -137,13 +174,7 @@ if(jobApplyBtns.length && roleSelect){
   });
 }
 
-// ---------- Demo careers application form ----------
-const careersForm = document.getElementById('careersForm');
-const careersConfirmMsg = document.getElementById('careersConfirmMsg');
-if(careersForm && careersConfirmMsg){
-  careersForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    careersConfirmMsg.classList.add('show');
-    careersConfirmMsg.textContent = 'This is a design demo — applications aren\u2019t sent yet. Once connected, you\u2019ll receive a confirmation here.';
-  });
-}
+setupWeb3Form('careersForm', 'careersConfirmMsg', {
+  success: 'Thank you \u2014 your application has been sent. We\u2019ll be in touch if there\u2019s a good fit.',
+  error: 'Something went wrong sending your application. Please call us on 01274 043495.'
+});

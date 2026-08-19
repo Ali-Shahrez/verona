@@ -169,26 +169,30 @@
 
     <div class="booking-card">
       <h3>Voucher Request</h3>
-      <p class="demo-note">This is a design demo — the form below is not yet connected to a live ordering system.</p>
+      <p class="demo-note">Fill in the form below and we'll be in touch to arrange payment and delivery of your voucher.</p>
       <form id="voucherForm">
+        <input type="hidden" name="access_key" value="6bbcd285-b3f5-4c4e-b8cf-b02cddfe5884">
+        <input type="hidden" name="subject" value="New Gift Voucher Request — Verona">
+        <input type="hidden" name="from_name" value="Verona Website">
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
         <div class="field-row">
           <div class="field">
             <label for="vname">Your Name</label>
-            <input id="vname" type="text" placeholder="Your name" required>
+            <input id="vname" name="name" type="text" placeholder="Your name" required>
           </div>
           <div class="field">
             <label for="vphone">Phone</label>
-            <input id="vphone" type="tel" placeholder="Phone number" required>
+            <input id="vphone" name="phone" type="tel" placeholder="Phone number" required>
           </div>
         </div>
         <div class="field">
           <label for="vemail">Email</label>
-          <input id="vemail" type="email" placeholder="you@email.com" required>
+          <input id="vemail" name="email" type="email" placeholder="you@email.com" required>
         </div>
         <div class="field-row">
           <div class="field">
             <label for="vamount">Amount</label>
-            <select id="vamount">
+            <select id="vamount" name="amount">
               <option>£25</option>
               <option>£50</option>
               <option>£75</option>
@@ -198,7 +202,7 @@
           </div>
           <div class="field">
             <label for="vdesign">Design</label>
-            <select id="vdesign">
+            <select id="vdesign" name="design">
               <option>Classic Olive</option>
               <option>Rose &amp; Hearts</option>
               <option>No preference</option>
@@ -207,11 +211,11 @@
         </div>
         <div class="field">
           <label for="vrecipient">Recipient Name (optional)</label>
-          <input id="vrecipient" type="text" placeholder="Who's it for?">
+          <input id="vrecipient" name="recipient" type="text" placeholder="Who's it for?">
         </div>
         <div class="field">
           <label for="vnote">Personal Message</label>
-          <textarea id="vnote" placeholder="A note to include with the voucher..."></textarea>
+          <textarea id="vnote" name="message" placeholder="A note to include with the voucher..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Request Voucher</button>
         <div class="confirm-msg" id="voucherConfirmMsg"></div>
