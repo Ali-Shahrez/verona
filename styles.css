@@ -502,6 +502,40 @@ footer .fine{font-size:0.76rem; margin-top:18px; color:#75705f;}
   .menu-switch .wrap{padding:14px 20px;}
 }
 
+/* ---------- PRICE TABLES (wine & spirits lists) ---------- */
+.price-table{width:100%; border-collapse:collapse; margin-bottom:8px;}
+.price-table thead tr{border-bottom:1px solid var(--line);}
+.price-table th{
+  text-align:right; font-size:0.64rem; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--muted); font-weight:500; padding:0 0 12px; white-space:nowrap;
+}
+.price-table th:first-child{text-align:left;}
+.price-table td{
+  padding:12px 0; border-bottom:1px solid var(--line); font-size:0.9rem; vertical-align:baseline;
+}
+.price-table tr:last-child td{border-bottom:none;}
+.price-table td:first-child{font-family:'Fraunces', serif; color:var(--cream); padding-right:14px;}
+.price-table td.price{text-align:right; color:var(--gold-soft); font-family:'Jost', sans-serif; font-weight:600; white-space:nowrap; padding-left:8px;}
+
+.tables-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+.table-block{margin-bottom:44px;}
+.table-block h4{
+  font-family:'Jost', sans-serif; font-weight:600; font-size:0.86rem; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--gold); margin:0 0 18px; text-align:left;
+}
+
+.offer-badge{
+  max-width:420px; margin:-10px auto 64px; text-align:center;
+  border:1px dashed var(--gold-deep); padding:22px 26px; border-radius:4px;
+}
+.offer-badge .label{display:block; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;}
+.offer-badge strong{display:block; font-family:'Fraunces', serif; font-size:1.35rem; color:var(--gold-soft);}
+
+@media(max-width:760px){
+  .tables-grid{grid-template-columns:1fr; gap:0;}
+  .price-table th, .price-table td{font-size:0.8rem;}
+}
+
 /* ---------- GIFT VOUCHERS PAGE ---------- */
 .purchase-grid{
   display:grid; grid-template-columns:1fr 1fr; gap:24px;
