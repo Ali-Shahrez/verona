@@ -96,6 +96,75 @@ if(track){
   goTo(0);
 }
 
+// ---------- Booking form: time dropdown built from real opening hours ----------
+// Day keys follow Date.getDay(): 0 = Sunday ... 6 = Saturday
+const OPENING_HOURS = {
+  0: { open: '12:00', close: '20:30' }, // Sunday
+  1: null,                              // Monday — closed
+  2: { open: '17:00', close: '21:30' }, // Tuesday
+  3: { open: '17:00', close: '21:30' }, // Wednesday
+  4: { open: '17:00', close: '21:30' }, // Thursday
+  5: { open: '17:00', close: '21:30' }, // Friday
+  6: { open: '12:00', close: '22:00' }  // Saturday
+};
+// Last bookable slot is set 30 minutes before closing to allow a full sitting before the kitchen closes.
+const LAST_BOOKING_BUFFER_MINS = 30;
+const DEFAULT_HOURS_HINT = 'Tue\u2013Fri 5\u20139:30pm \u00b7 Sat 12\u201310pm \u00b7 Sun 12\u20138:30pm \u00b7 Closed Mondays';
+
+function timeStrToMins(hhmm){
+  const [h, m] = hhmm.split(':').map(Number);
+  return h * 60 + m;
+}
+function minsToLabel(mins){
+  let h = Math.floor(mins / 60), m = mins % 60;
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  let h12 = h % 12;
+  if(h12 === 0) h12 = 12;
+  return `${h12}:${String(m).padStart(2, '0')} ${ampm}`;
+}
+function populateBookingTimes(dateValue){
+  const timeSelect = document.getElementById('btime');
+  const hint = document.getElementById('timeHint');
+  if(!timeSelect) return;
+
+  if(!dateValue){
+    timeSelect.disabled = true;
+    timeSelect.innerHTML = '<option value="">Select a date first</option>';
+    if(hint){ hint.textContent = DEFAULT_HOURS_HINT; hint.classList.remove('warn'); }
+    return;
+  }
+
+  const day = new Date(dateValue + 'T00:00:00').getDay();
+  const hours = OPENING_HOURS[day];
+
+  if(!hours){
+    timeSelect.disabled = true;
+    timeSelect.innerHTML = '<option value="">Closed on Mondays</option>';
+    if(hint){ hint.textContent = 'We\u2019re closed on Mondays \u2014 please choose another day, or call us to check.'; hint.classList.add('warn'); }
+    return;
+  }
+
+  if(hint){ hint.textContent = DEFAULT_HOURS_HINT; hint.classList.remove('warn'); }
+  timeSelect.disabled = false;
+  const startMins = timeStrToMins(hours.open);
+  const endMins = timeStrToMins(hours.close) - LAST_BOOKING_BUFFER_MINS;
+  const optionsHtml = ['<option value="">Select a time</option>'];
+  for(let t = startMins; t <= endMins; t += 15){
+    const hh = String(Math.floor(t / 60)).padStart(2, '0');
+    const mm = String(t % 60).padStart(2, '0');
+    optionsHtml.push(`<option value="${hh}:${mm}">${minsToLabel(t)}</option>`);
+  }
+  timeSelect.innerHTML = optionsHtml.join('');
+}
+
+const bdateInput = document.getElementById('bdate');
+if(bdateInput){
+  const today = new Date();
+  bdateInput.min = today.toISOString().split('T')[0];
+  bdateInput.addEventListener('change', () => populateBookingTimes(bdateInput.value));
+  populateBookingTimes(bdateInput.value);
+}
+
 // ---------- Web3Forms submission handler (shared by all site forms) ----------
 function setupWeb3Form(formId, confirmId, messages){
   const form = document.getElementById(formId);
